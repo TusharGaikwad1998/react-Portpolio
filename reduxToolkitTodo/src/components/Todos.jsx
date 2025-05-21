@@ -9,12 +9,10 @@ function Todos(todo) {
   const [todoMsg, setTodoMsg] = useState(todo.todo)
   const [isTodoEditable, setIsTodoEditable] = useState(false)
 
-  const editTodo = (id) => {
+  // const editTodo = (id) => {
  
-    // setIsTodoEditable()
-    console.log(id);
-    
-  }
+   
+  // }
 return (
     <>
       <ul className="list-none">
@@ -25,7 +23,7 @@ return (
           >
             {
                 todoToEdit.id===todo.id?
-                <input placeholder="type here" type="text" defaultValue={ todoToEdit.text}
+                <input placeholder="type here" type="text" defaultValue={todoToEdit.text}
                   className='text-white border border-white p-4' /> :
                 <div className='text-white'>{todo.text}
                 </div>
@@ -40,13 +38,17 @@ return (
                 
                 setTodoToEdit(todo)
                 //if (isTodoEditable) {
+                  
                   editTodo(todo.id);
+                  
+
               //   } else setIsTodoEditable((prev) => !prev);
                }}
             >
-              {isTodoEditable ? "📁" : "✏️"}
-
+              {todoToEdit ? "📁" : "✏️"}
+                
             </button>
+            todoToEdit(false)
             <button
               onClick={() => dispatch(removeTodo(todo.id))}
               className="text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md"
